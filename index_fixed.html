@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shark X</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .lang-switch {
+      display: inline-flex;
+      gap: .4rem;
+      position: fixed;
+      top: .6rem;
+      right: .6rem;
+      z-index: 9999;
+    }
+    .lang-switch button {
+      background: transparent;
+      color: inherit;
+      border: 1px solid currentColor;
+      border-radius: .4rem;
+      padding: .25rem .5rem;
+      cursor: pointer;
+      opacity: .9;
+    }
+    .lang-switch button[aria-pressed="true"] {
+      outline: 2px solid rgba(0,200,255,.5);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 data-i18n="auto.k1">Shark X</h1>
+  <nav>
+    <a data-i18n="auto.k2">About</a>
+    <a data-i18n="auto.k3">Adventures</a>
+    <a data-i18n="auto.k4">Gallery</a>
+    <a data-i18n="auto.k5">Book Now</a>
+  </nav>
+</header>
+
+<div class="lang-switch">
+  <button data-lang="en" aria-pressed="true">EN</button>
+  <button data-lang="ru">RU</button>
+  <button data-lang="de">DE</button>
+</div>
+
+<section class="hero">
+  <h2><span data-i18n="auto.k6">Dive Into</span> <span data-i18n="auto.k7">the Future</span></h2>
+  <p data-i18n="auto.k8">Premium scuba diving • Sea trips • Private charters</p>
+  <button data-i18n="auto.k9">Book Your Dive</button>
+  <button data-i18n="auto.k10">Explore Adventures</button>
+</section>
+
+<section class="about">
+  <h2 data-i18n="auto.k11">About Shark X</h2>
+  <p data-i18n="auto.k13">
+    At Shark X, we deliver unforgettable Red Sea experiences led by a professional, safety-first team.
+  </p>
+</section>
+
+<section class="adventures">
+  <h2 data-i18n="auto.k22">Our Adventures</h2>
+
+  <h3 data-i18n="auto.k23">Coral Reef Diving</h3>
+  <p data-i18n="auto.k24">Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.</p>
+
+  <h3 data-i18n="auto.k25">Wreck Diving</h3>
+  <p data-i18n="auto.k26">Iconic wrecks including SS Thistlegorm—a must for adventure seekers.</p>
+
+  <h3 data-i18n="auto.k27">Safari & Special Dives</h3>
+  <p data-i18n="auto.k28">Pro-level itineraries in Safaga & Marsa Alam with guided safaris.</p>
+
+  <h3 data-i18n="auto.k30">Private Boats & Islands</h3>
+  <p data-i18n="auto.k31">Tailored private charters for families, couples, or content creators.</p>
+</section>
+
+<section class="gallery">
+  <h2 data-i18n="auto.k33">Gallery</h2>
+</section>
+
+<section class="contact">
+  <h2 data-i18n="auto.k35">Contact & Booking</h2>
+  <p data-i18n="auto.k36">
+    Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.
+  </p>
+  <ul>
+    <li>📧 Email: tanany389@gmail.com</li>
+    <li>💬 WhatsApp: +20 102 371 9397</li>
+    <li>📸 Instagram: @sharkx46</li>
+  </ul>
+  <button data-i18n="auto.k37">Reserve Your Dive on WhatsApp</button>
+</section>
+
+<footer>
+  <p>© Shark X • The Sea Within Your Heart</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const DICT = {
+    en: {
+      "auto.k1": "Shark X",
+      "auto.k2": "About",
+      "auto.k3": "Adventures",
+      "auto.k4": "Gallery",
+      "auto.k5": "Book Now",
+      "auto.k6": "Dive Into",
+      "auto.k7": "the Future",
+      "auto.k8": "Premium scuba diving • Sea trips • Private charters",
+      "auto.k9": "Book Your Dive",
+      "auto.k10": "Explore Adventures",
+      "auto.k11": "About Shark X",
+      "auto.k13": "At Shark X, we deliver unforgettable Red Sea experiences led by a professional, safety-first team.",
+      "auto.k22": "Our Adventures",
+      "auto.k23": "Coral Reef Diving",
+      "auto.k24": "Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.",
+      "auto.k25": "Wreck Diving",
+      "auto.k26": "Iconic wrecks including SS Thistlegorm—a must for adventure seekers.",
+      "auto.k27": "Safari & Special Dives",
+      "auto.k28": "Pro-level itineraries in Safaga & Marsa Alam with guided safaris.",
+      "auto.k30": "Private Boats & Islands",
+      "auto.k31": "Tailored private charters for families, couples, or content creators.",
+      "auto.k33": "Gallery",
+      "auto.k35": "Contact & Booking",
+      "auto.k36": "Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.",
+      "auto.k37": "Reserve Your Dive on WhatsApp"
+    },
+    ru: {
+      "auto.k1": "Shark X",
+      "auto.k2": "О нас",
+      "auto.k3": "Приключения",
+      "auto.k4": "Галерея",
+      "auto.k5": "Забронировать",
+      "auto.k6": "Погружение в",
+      "auto.k7": "Будущее",
+      "auto.k8": "Премиальные дайвы • Морские прогулки • Частные чартеры",
+      "auto.k9": "Забронировать дайв",
+      "auto.k10": "Выбрать приключение",
+      "auto.k11": "О Shark X",
+      "auto.k13": "Shark X дарит незабываемые впечатления Красного моря с профессиональной командой.",
+      "auto.k22": "Наши приключения",
+      "auto.k23": "Коралловые рифы",
+      "auto.k24": "Кристально чистые места с черепахами, скатами и кораллами.",
+      "auto.k25": "Затонувшие суда",
+      "auto.k26": "SS Thistlegorm — обязательное место для дайверов.",
+      "auto.k27": "Сафари и специальные дайвы",
+      "auto.k28": "Программы в Сафаге и Марса-Аламе с гидом.",
+      "auto.k30": "Частные лодки и острова",
+      "auto.k31": "Частные чартеры для семей, пар и блогеров.",
+      "auto.k33": "Галерея",
+      "auto.k35": "Контакты и бронирование",
+      "auto.k36": "Сообщите даты, уровень и желаемое приключение — мы составим план.",
+      "auto.k37": "Забронировать через WhatsApp"
+    },
+    de: {
+      "auto.k1": "Shark X",
+      "auto.k2": "Über uns",
+      "auto.k3": "Abenteuer",
+      "auto.k4": "Galerie",
+      "auto.k5": "Jetzt buchen",
+      "auto.k6": "Tauche in die",
+      "auto.k7": "Zukunft",
+      "auto.k8": "Premium-Tauchgänge • Bootsausflüge • Private Charter",
+      "auto.k9": "Tauchgang buchen",
+      "auto.k10": "Abenteuer entdecken",
+      "auto.k11": "Über Shark X",
+      "auto.k13": "Shark X bietet unvergessliche Rotmeer-Erlebnisse mit einem professionellen Team.",
+      "auto.k22": "Unsere Abenteuer",
+      "auto.k23": "Korallenriffe",
+      "auto.k24": "Kristallklare Plätze mit Schildkröten, Rochen und Korallen.",
+      "auto.k25": "Wracktauchgänge",
+      "auto.k26": "SS Thistlegorm — ein Muss für Abenteurer.",
+      "auto.k27": "Safaris & Spezialtauchgänge",
+      "auto.k28": "Programme in Safaga & Marsa Alam mit geführten Safaris.",
+      "auto.k30": "Private Boote & Inseln",
+      "auto.k31": "Private Charter für Familien, Paare oder Content Creator.",
+      "auto.k33": "Galerie",
+      "auto.k35": "Kontakt & Buchung",
+      "auto.k36": "Nennen Sie uns Ihre Daten, Ihr Level und Ihr Abenteuer — wir machen den Plan.",
+      "auto.k37": "Über WhatsApp reservieren"
+    }
+  };
+
+  function setLang(code) {
+    document.documentElement.lang = code;
+    const dict = DICT[code] || DICT.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (dict[k] !== undefined) el.textContent = dict[k];
+    });
+  }
+
+  const ls = document.querySelector('.lang-switch');
+  if (ls) {
+    ls.addEventListener('click', e => {
+      const b = e.target.closest('button[data-lang]');
+      if (!b) return;
+      ls.querySelectorAll('button').forEach(x =>
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false')
+      );
+      setLang(b.getAttribute('data-lang'));
+    });
+  }
+
+  setLang('en');
+});
+</script>
+
+</body>
+</html>
