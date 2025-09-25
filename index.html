@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SHARK X — Red Sea Diving • Hurghada</title>
+  <meta name="description" content="Coral reef dives, Hurghada wrecks, Red Sea safari, and private boats & islands.">
+  <link rel="icon" href="assets/sharkx-logo.png" type="image/png">
+  <link rel="preload" as="image" href="assets/reef-deck.jpg">
+  <link rel="stylesheet" href="styles-black.css?v=4" />
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <header class="hdr" id="top">
+    <a class="brand" href="#top">
+      <img src="assets/sharkx-logo.png" alt="Shark X" width="48" height="48">
+      <span>SHARK&nbsp;X</span>
+    </a>
+    <nav aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <ul id="nav" class="nav">
+        <li><a href="#sites">Dive Sites</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact" class="chip">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" style="--hero:url('assets/reef-deck.jpg')">
+    <div class="glass">
+      <h1>Diving from another world.</h1>
+      <p class="lead">All-black aesthetic with Red Sea soul — coral gardens, wrecks, safari routes, and private island escapes.</p>
+      <div class="cta">
+        <a class="btn" href="#sites">Explore Dive Sites</a>
+        <a class="btn ghost" href="#contact">Plan Your Dive</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="sites" class="sect">
+      <header class="sect-head">
+        <h2>Dive Sites</h2>
+        <p>Tap a card — everything is clickable.</p>
+      </header>
+      <div class="grid">
+        <article class="card" data-modal="reef">
+          <img src="assets/diver-coral-shaka.jpg" alt="Coral reef shaka">
+          <h3>Coral Reef Classics</h3>
+          <p>Sunlit gardens • calm lagoons • fish schools • <strong>Depth 5–18 m</strong>.</p>
+        </article>
+        <article class="card" data-modal="plateau">
+          <img src="assets/diver-reef.jpg" alt="Reef plateau">
+          <h3>Plateau & Drop-off</h3>
+          <p>Wide ledges • turtles • big-blue edge • <strong>Depth 10–30 m</strong>.</p>
+        </article>
+        <article class="card" data-modal="wrecks">
+          <img src="assets/wreck-main.jpg" alt="Hurghada wreck">
+          <h3>Hurghada Wrecks</h3>
+          <p>Classic hulls • Underwater Museum tanks • <strong>Depth 8–28 m</strong>.</p>
+        </article>
+        <article class="card" data-modal="safari">
+          <img src="assets/shark-cover.jpg" alt="Shark cover">
+          <h3>Safari & Special Dives</h3>
+          <p>Liveaboards • shark/dugong hotspots • <strong>Depth 10–40 m</strong>.</p>
+        </article>
+        <article class="card" data-modal="islands">
+          <img src="assets/boat-side.jpg" alt="Private boat">
+          <h3>Private Boats & Islands</h3>
+          <p>Normal & private trips • islands • snorkel & dive • <strong>Depth 0–12 m</strong>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="sect alt">
+      <header class="sect-head">
+        <h2>Gallery</h2>
+        <p>Click any photo to enlarge.</p>
+      </header>
+      <div class="gallery">
+        <button class="glink" data-img="assets/diver-coral-shaka.jpg"><img src="assets/diver-coral-shaka.jpg" alt=""></button>
+        <button class="glink" data-img="assets/tank-1.jpg"><img src="assets/tank-1.jpg" alt=""></button>
+        <button class="glink" data-img="assets/tank-2.jpg"><img src="assets/tank-2.jpg" alt=""></button>
+        <button class="glink" data-img="assets/tank-3.jpg"><img src="assets/tank-3.jpg" alt=""></button>
+        <button class="glink" data-img="assets/safari-boat.jpg"><img src="assets/safari-boat.jpg" alt=""></button>
+        <button class="glink" data-img="assets/shark-cover.jpg"><img src="assets/shark-cover.jpg" alt=""></button>
+      </div>
+    </section>
+
+    <section id="contact" class="sect">
+      <header class="sect-head">
+        <h2>Contact</h2>
+        <p>Tell us your dates & level — we’ll match the perfect site.</p>
+      </header>
+      <div class="contact-cards">
+        <a class="contact card" href="https://wa.me/201023719397" target="_blank" rel="noopener">
+          <span>WhatsApp</span><strong>+20 102 371 9397</strong>
+        </a>
+        <a class="contact card" href="https://www.instagram.com/sharkx46?igsh=bW1ndDFrazJ0eW94&utm_source=qr" target="_blank" rel="noopener">
+          <span>Instagram</span><strong>@sharkx46</strong>
+        </a>
+        <a class="contact card" href="tel:+201023719397">
+          <span>Call</span><strong>+20 102 371 9397</strong>
+        </a>
+        <a class="contact card" href="mailto:tanany389@gmail.com">
+          <span>Email</span><strong>tanany389@gmail.com</strong>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr">
+    <p>&copy; <span id="year"></span> SHARK X • Hurghada</p>
+    <a class="top" href="#top">Back to top ↑</a>
+  </footer>
+
+  <!-- Modals -->
+  <dialog id="reef" class="modal">
+    <article>
+      <header><h3>Coral Reef Classics</h3><button class="close" data-close>×</button></header>
+      <p>We offer different reef sites — from mellow coral gardens to fish-packed pinnacles.</p>
+      <ul><li>Depth: 5–18 m • All levels</li><li>Calm lagoons & bommies</li><li>Bright, colorful photos</li></ul>
+    </article>
+  </dialog>
+
+  <dialog id="plateau" class="modal">
+    <article>
+      <header><h3>Plateau & Drop-off</h3><button class="close" data-close>×</button></header>
+      <p>Wide ledges leading to the blue edge — turtles, big schools, and that flying feeling.</p>
+      <ul><li>Depth: 10–30 m • AOW+</li><li>Great viz & scenery</li></ul>
+    </article>
+  </dialog>
+
+  <dialog id="wrecks" class="modal">
+    <article>
+      <header><h3>Hurghada Wrecks & Underwater Museum</h3><button class="close" data-close>×</button></header>
+      <div class="modal-gallery">
+        <img src="assets/wreck-main.jpg" alt="Wreck">
+        <img src="assets/tank-1.jpg" alt="Tank 1">
+        <img src="assets/tank-2.jpg" alt="Tank 2">
+        <img src="assets/tank-3.jpg" alt="Tank 3">
+      </div>
+      <ul><li>Depth: 8–28 m • OW+</li><li>Steel silhouettes, schooling fish</li></ul>
+    </article>
+  </dialog>
+
+  <dialog id="safari" class="modal">
+    <article>
+      <header><h3>Safari Trips & Special Dives</h3><button class="close" data-close>×</button></header>
+      <p>We offer various safari trips and special dives in Safaga and Marsa Alam — serene sea cow (dugong) encounters and thrilling shark dive sites.</p>
+      <div class="modal-gallery">
+        <img src="assets/safari-boat.jpg" alt="Safari boat">
+        <img src="assets/shark-cover.jpg" alt="Shark">
+      </div>
+    </article>
+  </dialog>
+
+  <dialog id="islands" class="modal">
+    <article>
+      <header><h3>Private Boats & Islands</h3><button class="close" data-close>×</button></header>
+      <p>We provide normal and private boat trips including islands, relaxed snorkeling, and guided diving for all levels.</p>
+      <div class="modal-gallery">
+        <img src="assets/island-1.jpg" alt="Island 1">
+        <img src="assets/island-2.jpg" alt="Island 2">
+        <img src="assets/island-3.jpg" alt="Island 3">
+      </div>
+    </article>
+  </dialog>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox" class="modal lightbox"><article><button class="close" data-close>×</button><img id="lightboxImg" alt=""></article></dialog>
+
+  <script src="script-black.js?v=4" defer></script>
+</body>
+</html>
