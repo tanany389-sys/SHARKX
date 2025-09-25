@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shark X – Dive Into the Future</title>
+  <meta name="description" content="Shark X scuba diving, boat trips, and Red Sea adventures in Hurghada, Safaga, and Marsa Alam. Wrecks like SS Thistlegorm. Contact via WhatsApp or email." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="#hero" class="brand">
+      <img src="assets/logo.png" alt="Shark X logo">
+      <span>Shark X</span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#adventures">Adventures</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact" class="cta">Book Now</a>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="bg-slider">
+      <div class="slide" style="background-image:url('assets/manta.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/dolphin.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/turtle.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/tank.jpg')"></div>
+    </div>
+
+    <div class="glow-orb"></div>
+    <div class="hero-content">
+      <h1><span class="thin">Dive Into</span> the <span class="accent">Future</span></h1>
+      <p class="tag">Premium scuba diving • Sea trips • Private charters</p>
+      <div class="buttons">
+        <a href="#contact" class="btn primary">Book Your Dive</a>
+        <a href="#adventures" class="btn ghost">Explore Adventures</a>
+      </div>
+      <div class="badge">Hurghada • Safaga • Marsa Alam</div>
+    </div>
+    <div class="light-sweep"></div>
+  </section>
+
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <h2>About Shark X</h2>
+          <p>
+            At <strong>Shark X</strong>, we deliver unforgettable Red Sea experiences led by a professional,
+            safety-first team. Our mission is simple: <em>the customer’s best service, every time</em>.
+          </p>
+          <p>
+            Based in <strong>Hurghada</strong>, we also craft special dive trips in <strong>Safaga</strong> and
+            <strong>Marsa Alam</strong>—including wrecks like the legendary <strong>SS Thistlegorm</strong>—as well as
+            private boat charters and island escapes.
+          </p>
+          <ul class="bullets">
+            <li>Beginner to pro-level dive programs</li>
+            <li>Wreck, reef, night &amp; safari dives</li>
+            <li>Custom private trips &amp; boats</li>
+            <li>Price details &amp; packages <em>via contact</em></li>
+          </ul>
+        </div>
+        <div class="about-photo">
+          <img src="assets/dolphin.jpg" alt="Diver with dolphins">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adventures" class="section adventures">
+    <div class="container">
+      <h2>Our Adventures</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="image" style="background-image:url('assets/turtle.jpg')"></div>
+          <h3>Coral Reef Diving</h3>
+          <p>Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.</p>
+        </article>
+        <article class="card">
+          <div class="image" style="background-image:url('assets/tank.jpg')"></div>
+          <h3>Wreck Diving</h3>
+          <p>Iconic wrecks including <strong>SS Thistlegorm</strong>—a must for adventure seekers.</p>
+        </article>
+        <article class="card">
+          <div class="image" style="background-image:url('assets/manta.jpg')"></div>
+          <h3>Safari &amp; Special Dives</h3>
+          <p>Pro-level itineraries in <strong>Safaga</strong> &amp; <strong>Marsa Alam</strong> with guided safaris.</p>
+        </article>
+        <article class="card">
+          <div class="image" style="background-image:url('assets/octopus1.jpg')"></div>
+          <h3>Private Boats &amp; Islands</h3>
+          <p>Tailored private charters for families, couples, or content creators.</p>
+        </article>
+      </div>
+      <div class="note">All pricing &amp; package info is shared on request — <a href="#contact">contact us to plan your trip</a>.</div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="grid">
+        <img src="assets/manta.jpg" alt="Manta ray" class="zoomable">
+        <img src="assets/dolphin.jpg" alt="Dolphin dive" class="zoomable">
+        <img src="assets/tank.jpg" alt="Wreck tank" class="zoomable">
+        <img src="assets/turtle.jpg" alt="Sea turtle" class="zoomable">
+        <img src="assets/octopus1.jpg" alt="Octopus closeup" class="zoomable">
+        <img src="assets/octopus2.jpg" alt="Octopus reef" class="zoomable">
+      </div>
+    </div>
+    <div class="modal" id="modal" aria-hidden="true">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <img id="modalImg" alt="Expanded photo">
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="container contact-grid">
+      <div>
+        <h2>Contact &amp; Booking</h2>
+        <p>Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.</p>
+        <ul class="contact-list">
+          <li>📧 Email: <a href="mailto:tanany389@gmail.com">tanany389@gmail.com</a></li>
+          <li>💬 WhatsApp: <a href="https://wa.me/201023719397" target="_blank" rel="noopener">+20 102 371 9397</a></li>
+          <li>📸 Instagram: <a href="https://instagram.com/sharkx46" target="_blank" rel="noopener">@sharkx46</a></li>
+        </ul>
+        <a class="btn primary large" href="https://wa.me/201023719397" target="_blank" rel="noopener">Reserve Your Dive on WhatsApp</a>
+      </div>
+      <div class="contact-card">
+        <h3>Quick Facts</h3>
+        <ul>
+          <li>Base: <strong>Hurghada</strong></li>
+          <li>Special Dives: <strong>Safaga</strong>, <strong>Marsa Alam</strong></li>
+          <li>Highlights: <strong>SS Thistlegorm</strong> & other wrecks</li>
+          <li>Private boats &amp; islands available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Shark X • The Sea Within Your Heart</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
