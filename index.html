@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shark X – Dive Into the Future</title>
+  <meta name="description" content="Shark X scuba diving, boat trips, and Red Sea adventures in Hurghada, Safaga, and Marsa Alam. Wrecks like SS Thistlegorm. Contact via WhatsApp or email." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+<style>
+.lang-switch{display:inline-flex;gap:.4rem;margin-left:auto}
+.lang-switch button{background:transparent;color:inherit;border:1px solid currentColor;border-radius:.4rem;padding:.25rem .5rem;cursor:pointer;opacity:.9}
+.lang-switch button[aria-pressed="true"]{outline:2px solid rgba(0,200,255,.5)}
+.lang-switch.fixed{position:fixed;top:.6rem;right:.6rem;z-index:9999}
+@media (max-width:560px){.lang-switch.fixed{top:.4rem;right:.4rem}}
+</style>
+
+</head>
+<body>
+  <header class="nav">
+    <a href="#hero" class="brand">
+      <img src="assets/logo.png" alt="Shark X logo">
+      <span data-i18n="auto.k1">Shark X</span>
+    </a>
+    <nav>
+      <a href="#about" data-i18n="auto.k2">About</a>
+      <a href="#adventures" data-i18n="auto.k3">Adventures</a>
+      <a href="#gallery" data-i18n="auto.k4">Gallery</a>
+      <a href="#contact" class="cta" data-i18n="auto.k5">Book Now</a>
+    </nav>
+  
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="true">EN</button>
+      <button data-lang="ru">RU</button>
+      <button data-lang="de">DE</button>
+    </div>
+    </header>
+    
+
+  <section id="hero" class="hero">
+    <div class="bg-slider">
+      <div class="slide" style="background-image:url('assets/manta.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/dolphin.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/turtle.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/tank.jpg')"></div>
+    </div>
+
+    <div class="glow-orb"></div>
+    <div class="hero-content">
+      <h1><span class="thin" data-i18n="auto.k6">Dive Into</span> the <span class="accent" data-i18n="auto.k7">Future</span></h1>
+      <p class="tag" data-i18n="auto.k8">Premium scuba diving • Sea trips • Private charters</p>
+      <div class="buttons">
+        <a href="#contact" class="btn primary" data-i18n="auto.k9">Book Your Dive</a>
+        <a href="#adventures" class="btn ghost" data-i18n="auto.k10">Explore Adventures</a>
+      </div>
+      <div class="badge">Hurghada • Safaga • Marsa Alam</div>
+    </div>
+    <div class="light-sweep"></div>
+  </section>
+
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <h2 data-i18n="auto.k11">About Shark X</h2>
+          <p>
+            At <strong data-i18n="auto.k12">Shark X</strong>, we deliver unforgettable Red Sea experiences led by a professional,
+            safety-first team. Our mission is simple: <em data-i18n="auto.k13">the customer’s best service, every time</em>.
+          </p>
+          <p>
+            Based in <strong data-i18n="auto.k14">Hurghada</strong>, we also craft special dive trips in <strong data-i18n="auto.k15">Safaga</strong> and
+            <strong data-i18n="auto.k16">Marsa Alam</strong>—including wrecks like the legendary <strong data-i18n="auto.k17">SS Thistlegorm</strong>—as well as
+            private boat charters and island escapes.
+          </p>
+          <ul class="bullets">
+            <li data-i18n="auto.k18">Beginner to pro-level dive programs</li>
+            <li data-i18n="auto.k19">Wreck, reef, night &amp;amp; safari dives</li>
+            <li data-i18n="auto.k20">Custom private trips &amp;amp; boats</li>
+            <li>Price details &amp; packages <em data-i18n="auto.k21">via contact</em></li>
+          </ul>
+        </div>
+        <div class="about-photo">
+          <img src="assets/dolphin.jpg" alt="Diver with dolphins">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adventures" class="section adventures">
+    <div class="container">
+      <h2 data-i18n="auto.k22">Our Adventures</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="image" style="background-image:url('assets/turtle.jpg')"></div>
+          <h3 data-i18n="auto.k23">Coral Reef Diving</h3>
+          <p data-i18n="auto.k24">Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.</p>
+        </article>
+        <article class="card">
+          <div class="image" style="background-image:url('assets/tank.jpg')"></div>
+          <h3 data-i18n="auto.k25">Wreck Diving</h3>
+          <p>Iconic wrecks including <strong data-i18n="auto.k26">SS Thistlegorm</strong>—a must for adventure seekers.</p>
+        </article>
+        <article class="card">
+          <div class="image" style="background-image:url('assets/manta.jpg')"></div>
+          <h3 data-i18n="auto.k27">Safari &amp;amp; Special Dives</h3>
+          <p>Pro-level itineraries in <strong data-i18n="auto.k28">Safaga</strong> &amp; <strong data-i18n="auto.k29">Marsa Alam</strong> with guided safaris.</p>
+        </article>
+        <article class="card">
+          <div class="image" style="background-image:url('assets/octopus1.jpg')"></div>
+          <h3 data-i18n="auto.k30">Private Boats &amp;amp; Islands</h3>
+          <p data-i18n="auto.k31">Tailored private charters for families, couples, or content creators.</p>
+        </article>
+      </div>
+      <div class="note">All pricing &amp; package info is shared on request — <a href="#contact" data-i18n="auto.k32">contact us to plan your trip</a>.</div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section gallery">
+    <div class="container">
+      <h2 data-i18n="auto.k33">Gallery</h2>
+      <div class="grid">
+        <img src="assets/manta.jpg" alt="Manta ray" class="zoomable">
+        <img src="assets/dolphin.jpg" alt="Dolphin dive" class="zoomable">
+        <img src="assets/tank.jpg" alt="Wreck tank" class="zoomable">
+        <img src="assets/turtle.jpg" alt="Sea turtle" class="zoomable">
+        <img src="assets/octopus1.jpg" alt="Octopus closeup" class="zoomable">
+        <img src="assets/octopus2.jpg" alt="Octopus reef" class="zoomable">
+      </div>
+    </div>
+    <div class="modal" id="modal" aria-hidden="true">
+      <button class="close" id="closeModal" aria-label="Close" data-i18n="auto.k34">×</button>
+      <img id="modalImg" alt="Expanded photo">
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="container contact-grid">
+      <div>
+        <h2 data-i18n="auto.k35">Contact &amp;amp; Booking</h2>
+        <p data-i18n="auto.k36">Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.</p>
+        <ul class="contact-list">
+          <li>📧 Email: <a href="mailto:tanany389@gmail.com">tanany389@gmail.com</a></li>
+          <li>💬 WhatsApp: <a href="https://wa.me/201023719397" target="_blank" rel="noopener">+20 102 371 9397</a></li>
+          <li>📸 Instagram: <a href="https://instagram.com/sharkx46" target="_blank" rel="noopener">@sharkx46</a></li>
+        </ul>
+        <a class="btn primary large" href="https://wa.me/201023719397" target="_blank" rel="noopener" data-i18n="auto.k37">Reserve Your Dive on WhatsApp</a>
+      </div>
+      <div class="contact-card">
+        <h3 data-i18n="auto.k38">Quick Facts</h3>
+        <ul>
+          <li>Base: <strong data-i18n="auto.k39">Hurghada</strong></li>
+          <li>Special Dives: <strong data-i18n="auto.k40">Safaga</strong>, <strong data-i18n="auto.k41">Marsa Alam</strong></li>
+          <li>Highlights: <strong data-i18n="auto.k42">SS Thistlegorm</strong> & other wrecks</li>
+          <li data-i18n="auto.k43">Private boats &amp;amp; islands available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Shark X • The Sea Within Your Heart</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+<script>
+(function(){
+  const DICT = {
+    en: {\'auto.k1\': \'Shark X\', \'auto.k2\': \'About\', \'auto.k3\': \'Adventures\', \'auto.k4\': \'Gallery\', \'auto.k5\': \'Book Now\', \'auto.k6\': \'Dive Into\', \'auto.k7\': \'Future\', \'auto.k8\': \'Premium scuba diving • Sea trips • Private charters\', \'auto.k9\': \'Book Your Dive\', \'auto.k10\': \'Explore Adventures\', \'auto.k11\': \'About Shark X\', \'auto.k12\': \'Shark X\', \'auto.k13\': \'the customer’s best service, every time\', \'auto.k14\': \'Hurghada\', \'auto.k15\': \'Safaga\', \'auto.k16\': \'Marsa Alam\', \'auto.k17\': \'SS Thistlegorm\', \'auto.k18\': \'Beginner to pro-level dive programs\', \'auto.k19\': \'Wreck, reef, night &amp; safari dives\', \'auto.k20\': \'Custom private trips &amp; boats\', \'auto.k21\': \'via contact\', \'auto.k22\': \'Our Adventures\', \'auto.k23\': \'Coral Reef Diving\', \'auto.k24\': \'Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.\', \'auto.k25\': \'Wreck Diving\', \'auto.k26\': \'SS Thistlegorm\', \'auto.k27\': \'Safari &amp; Special Dives\', \'auto.k28\': \'Safaga\', \'auto.k29\': \'Marsa Alam\', \'auto.k30\': \'Private Boats &amp; Islands\', \'auto.k31\': \'Tailored private charters for families, couples, or content creators.\', \'auto.k32\': \'contact us to plan your trip\', \'auto.k33\': \'Gallery\', \'auto.k34\': \'×\', \'auto.k35\': \'Contact &amp; Booking\', \'auto.k36\': \'Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.\', \'auto.k37\': \'Reserve Your Dive on WhatsApp\', \'auto.k38\': \'Quick Facts\', \'auto.k39\': \'Hurghada\', \'auto.k40\': \'Safaga\', \'auto.k41\': \'Marsa Alam\', \'auto.k42\': \'SS Thistlegorm\', \'auto.k43\': \'Private boats &amp; islands available\'},
+    ru: {\'auto.k1\': \'Shark X\', \'auto.k2\': \'About\', \'auto.k3\': \'Adventures\', \'auto.k4\': \'Gallery\', \'auto.k5\': \'Book Now\', \'auto.k6\': \'Dive Into\', \'auto.k7\': \'Future\', \'auto.k8\': \'Premium scuba diving • Sea trips • Private charters\', \'auto.k9\': \'Book Your Dive\', \'auto.k10\': \'Explore Adventures\', \'auto.k11\': \'About Shark X\', \'auto.k12\': \'Shark X\', \'auto.k13\': \'the customer’s best service, every time\', \'auto.k14\': \'Хургада\', \'auto.k15\': \'Сафага\', \'auto.k16\': \'Марса-Алам\', \'auto.k17\': \'SS Thistlegorm\', \'auto.k18\': \'Beginner to pro-level dive programs\', \'auto.k19\': \'Wreck, reef, night &amp; safari dives\', \'auto.k20\': \'Custom private trips &amp; boats\', \'auto.k21\': \'via contact\', \'auto.k22\': \'Our Adventures\', \'auto.k23\': \'Coral Reef Diving\', \'auto.k24\': \'Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.\', \'auto.k25\': \'Wreck Diving\', \'auto.k26\': \'SS Thistlegorm\', \'auto.k27\': \'Safari &amp; Special Dives\', \'auto.k28\': \'Сафага\', \'auto.k29\': \'Марса-Алам\', \'auto.k30\': \'Private Boats &amp; Islands\', \'auto.k31\': \'Tailored private charters for families, couples, or content creators.\', \'auto.k32\': \'contact us to plan your trip\', \'auto.k33\': \'Gallery\', \'auto.k34\': \'×\', \'auto.k35\': \'Contact &amp; Booking\', \'auto.k36\': \'Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.\', \'auto.k37\': \'Reserve Your Dive on WhatsApp\', \'auto.k38\': \'Quick Facts\', \'auto.k39\': \'Хургада\', \'auto.k40\': \'Сафага\', \'auto.k41\': \'Марса-Алам\', \'auto.k42\': \'SS Thistlegorm\', \'auto.k43\': \'Private boats &amp; islands available\'},
+    de: {\'auto.k1\': \'Shark X\', \'auto.k2\': \'About\', \'auto.k3\': \'Adventures\', \'auto.k4\': \'Gallery\', \'auto.k5\': \'Book Now\', \'auto.k6\': \'Dive Into\', \'auto.k7\': \'Future\', \'auto.k8\': \'Premium scuba diving • Sea trips • Private charters\', \'auto.k9\': \'Book Your Dive\', \'auto.k10\': \'Explore Adventures\', \'auto.k11\': \'About Shark X\', \'auto.k12\': \'Shark X\', \'auto.k13\': \'the customer’s best service, every time\', \'auto.k14\': \'Hurghada\', \'auto.k15\': \'Safaga\', \'auto.k16\': \'Marsa Alam\', \'auto.k17\': \'SS Thistlegorm\', \'auto.k18\': \'Beginner to pro-level dive programs\', \'auto.k19\': \'Wreck, reef, night &amp; safari dives\', \'auto.k20\': \'Custom private trips &amp; boats\', \'auto.k21\': \'via contact\', \'auto.k22\': \'Our Adventures\', \'auto.k23\': \'Coral Reef Diving\', \'auto.k24\': \'Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.\', \'auto.k25\': \'Wreck Diving\', \'auto.k26\': \'SS Thistlegorm\', \'auto.k27\': \'Safari &amp; Special Dives\', \'auto.k28\': \'Safaga\', \'auto.k29\': \'Marsa Alam\', \'auto.k30\': \'Private Boats &amp; Islands\', \'auto.k31\': \'Tailored private charters for families, couples, or content creators.\', \'auto.k32\': \'contact us to plan your trip\', \'auto.k33\': \'Gallery\', \'auto.k34\': \'×\', \'auto.k35\': \'Contact &amp; Booking\', \'auto.k36\': \'Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.\', \'auto.k37\': \'Reserve Your Dive on WhatsApp\', \'auto.k38\': \'Quick Facts\', \'auto.k39\': \'Hurghada\', \'auto.k40\': \'Safaga\', \'auto.k41\': \'Marsa Alam\', \'auto.k42\': \'SS Thistlegorm\', \'auto.k43\': \'Private boats &amp; islands available\'}
+  };
+  function setLang(code){
+    document.documentElement.lang = code;
+    const dict = DICT[code] || DICT.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (dict[k]) el.textContent = dict[k];
+    });
+  }
+  const ls = document.querySelector('.lang-switch');
+  if (ls){
+    ls.addEventListener('click', e => {
+      const b = e.target.closest('button[data-lang]'); if (!b) return;
+      ls.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x===b?'true':'false'));
+      setLang(b.getAttribute('data-lang'));
+    });
+  }
+  setLang('en');
+})();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const DICT = {"en": {"auto.k1": "Shark X", "auto.k2": "About", "auto.k3": "Adventures", "auto.k4": "Gallery", "auto.k5": "Book Now", "auto.k6": "Dive Into", "auto.k7": "Future", "auto.k8": "Premium scuba diving • Sea trips • Private charters", "auto.k9": "Book Your Dive", "auto.k10": "Explore Adventures", "auto.k11": "About Shark X", "auto.k12": "Shark X", "auto.k13": "the customer’s best service, every time", "auto.k14": "Hurghada", "auto.k15": "Safaga", "auto.k16": "Marsa Alam", "auto.k17": "SS Thistlegorm", "auto.k18": "Beginner to pro-level dive programs", "auto.k19": "Wreck, reef, night &amp;amp; safari dives", "auto.k20": "Custom private trips &amp;amp; boats", "auto.k21": "via contact", "auto.k22": "Our Adventures", "auto.k23": "Coral Reef Diving", "auto.k24": "Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.", "auto.k25": "Wreck Diving", "auto.k26": "SS Thistlegorm", "auto.k27": "Safari &amp;amp; Special Dives", "auto.k28": "Safaga", "auto.k29": "Marsa Alam", "auto.k30": "Private Boats &amp;amp; Islands", "auto.k31": "Tailored private charters for families, couples, or content creators.", "auto.k32": "contact us to plan your trip", "auto.k33": "Gallery", "auto.k34": "×", "auto.k35": "Contact &amp;amp; Booking", "auto.k36": "Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.", "auto.k37": "Reserve Your Dive on WhatsApp", "auto.k38": "Quick Facts", "auto.k39": "Hurghada", "auto.k40": "Safaga", "auto.k41": "Marsa Alam", "auto.k42": "SS Thistlegorm", "auto.k43": "Private boats &amp;amp; islands available"}, "ru": {"auto.k1": "Shark X", "auto.k2": "About", "auto.k3": "Adventures", "auto.k4": "Галерея", "auto.k5": "Забронировать", "auto.k6": "Dive Into", "auto.k7": "Future", "auto.k8": "Premium scuba diving • Sea trips • Private charters", "auto.k9": "Book Your Dive", "auto.k10": "Explore Adventures", "auto.k11": "About Shark X", "auto.k12": "Shark X", "auto.k13": "the customer’s best service, every time", "auto.k14": "Хургада", "auto.k15": "Сафага", "auto.k16": "Марса-Алам", "auto.k17": "SS Thistlegorm", "auto.k18": "Beginner to pro-level dive programs", "auto.k19": "Wreck, reef, night &amp;amp; safari dives", "auto.k20": "Custom private trips &amp;amp; boats", "auto.k21": "via contact", "auto.k22": "Our Adventures", "auto.k23": "Coral Reef Diving", "auto.k24": "Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.", "auto.k25": "Wreck Diving", "auto.k26": "SS Thistlegorm", "auto.k27": "Safari &amp;amp; Special Dives", "auto.k28": "Сафага", "auto.k29": "Марса-Алам", "auto.k30": "Private Boats &amp;amp; Islands", "auto.k31": "Tailored private charters for families, couples, or content creators.", "auto.k32": "contact us to plan your trip", "auto.k33": "Галерея", "auto.k34": "×", "auto.k35": "Контакты &amp;amp; Booking", "auto.k36": "Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.", "auto.k37": "Reserve Your Dive on WhatsApp", "auto.k38": "Quick Facts", "auto.k39": "Хургада", "auto.k40": "Сафага", "auto.k41": "Марса-Алам", "auto.k42": "SS Thistlegorm", "auto.k43": "Private boats &amp;amp; islands available"}, "de": {"auto.k1": "Shark X", "auto.k2": "About", "auto.k3": "Adventures", "auto.k4": "Galerie", "auto.k5": "Jetzt buchen", "auto.k6": "Dive Into", "auto.k7": "Future", "auto.k8": "Premium scuba diving • Sea trips • Private charters", "auto.k9": "Book Your Dive", "auto.k10": "Explore Adventures", "auto.k11": "About Shark X", "auto.k12": "Shark X", "auto.k13": "the customer’s best service, every time", "auto.k14": "Hurghada", "auto.k15": "Safaga", "auto.k16": "Marsa Alam", "auto.k17": "SS Thistlegorm", "auto.k18": "Beginner to pro-level dive programs", "auto.k19": "Wreck, reef, night &amp;amp; safari dives", "auto.k20": "Custom private trips &amp;amp; boats", "auto.k21": "via contact", "auto.k22": "Our Adventures", "auto.k23": "Coral Reef Diving", "auto.k24": "Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.", "auto.k25": "Wreck Diving", "auto.k26": "SS Thistlegorm", "auto.k27": "Safari &amp;amp; Special Dives", "auto.k28": "Safaga", "auto.k29": "Marsa Alam", "auto.k30": "Private Boats &amp;amp; Islands", "auto.k31": "Tailored private charters for families, couples, or content creators.", "auto.k32": "contact us to plan your trip", "auto.k33": "Galerie", "auto.k34": "×", "auto.k35": "Kontakt &amp;amp; Booking", "auto.k36": "Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.", "auto.k37": "Reserve Your Dive on WhatsApp", "auto.k38": "Quick Facts", "auto.k39": "Hurghada", "auto.k40": "Safaga", "auto.k41": "Marsa Alam", "auto.k42": "SS Thistlegorm", "auto.k43": "Private boats &amp;amp; islands available"}};
+  function setLang(code){
+    document.documentElement.lang = code;
+    const dict = DICT[code] || DICT.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (dict[k] !== undefined) el.textContent = dict[k];
+    });
+  }
+  const ls = document.querySelector('.lang-switch');
+  if (ls){
+    ls.addEventListener('click', e => {
+      const b = e.target.closest('button[data-lang]'); if(!b) return;
+      ls.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x===b?'true':'false'));
+      setLang(b.getAttribute('data-lang'));
+    });
+  }
+  setLang('en');
+});
+</script>
+
+</body>
+</html>
