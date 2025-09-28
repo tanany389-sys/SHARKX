@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>SHARK X — Red Sea Diving</title>
+<link href="images/logo.png" rel="icon"/>
+<style>
+:root{
+  --bg:#07090b;
+  --card:#0f1217;
+  --card2:#11151b;
+  --text:#e8edf7;
+  --muted:#a7b0c3;
+  --red:#ff2a2a;
+  --glow: 0 0 18px rgba(255,42,42,.35), 0 0 4px rgba(255,42,42,.6) inset;
+  --ring: 0 0 0 2px rgba(255,42,42,.45), 0 0 40px rgba(255,42,42,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Inter,sans-serif;line-height:1.4}
+a{color:var(--text);text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px}
+/* Header */
+.header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#07090bcc,#07090b00)}
+.nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.06em}
+.brand img{height:28px;width:auto;filter:drop-shadow(0 0 6px rgba(255,42,42,.35))}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{opacity:.9}
+/* Lang buttons */
+.langs{display:flex;gap:10px;align-items:center}
+.lang-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 -10px 30px rgba(255,255,255,.02)}
+.lang-btn.active{border-color:var(--red);box-shadow:var(--ring)}
+.flag{font-size:18px;line-height:1}
+/* Hero */
+.hero{position:relative;overflow:hidden}
+.hero .container{padding-top:56px;padding-bottom:56px}
+.gridlines::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);background-size: 100% 44px, 44px 100%;pointer-events:none;opacity:.06}
+.watermark{position:absolute;left:50%;transform:translateX(-50%);top:55vh;opacity:.14;pointer-events:none;filter:drop-shadow(0 0 10px rgba(255,42,42,.25));}
+.watermark img{width:min(90vw,900px);height:auto;opacity:.16}
+h1{font-size:clamp(36px,5.2vw,68px);margin:0 0 8px;font-weight:800;letter-spacing:.02em}
+h1 .red{color:var(--red)}
+.sub{color:var(--muted);font-size:clamp(14px,2.2vw,20px);margin-bottom:18px}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0 8px}
+.btn{padding:14px 20px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03)}
+.btn.primary{background:linear-gradient(180deg,#ff3b3b,#d81e1e);border-color:#ff3b3b;box-shadow:0 12px 30px rgba(255,42,42,.25), var(--glow)}
+.locations{opacity:.9}
+/* Sections */
+section h2{font-size:clamp(26px,3.6vw,42px);margin:0 0 18px}
+.lead{color:var(--muted)}
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width: 960px){.cards{grid-template-columns:repeat(2,1fr)} .watermark{top:55vh} }
+@media (max-width: 560px){.cards{grid-template-columns:1fr} }
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;cursor:pointer;transition:transform .15s ease, box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 42px rgba(255,42,42,.12)}
+.card img{width:100%;height:160px;object-fit:cover;display:block;opacity:.95}
+.card .body{padding:14px 16px 18px}
+.card .title{font-size:20px;font-weight:800;margin-bottom:6px}
+.card .text{color:var(--muted)}
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.08);cursor:pointer;opacity:.95}
+@media(max-width:920px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+/* Lightbox/Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px;z-index:60}
+.modal.open{display:flex}
+.modal-card{max-width:900px;width:100%;background:linear-gradient(180deg,#0b0e12,#0f141a);border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.modal-body{padding:14px 16px}
+.modal-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.modal-gallery img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.08)}
+.close-btn{background:#1b212a;border:1px solid rgba(255,255,255,.15);color:#ddd;padding:8px 12px;border-radius:10px;cursor:pointer}
+/* Reviews */
+.reviews-box{margin-top:24px;background:linear-gradient(180deg,#0b0f14,#111821);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
+.reviews-head{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.pill{padding:6px 10px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.reviews-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px 16px}
+.review{background:linear-gradient(180deg,#10161f,#0f141b);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px}
+@media(max-width:760px){.reviews-list{grid-template-columns:1fr}}
+.review .name{font-weight:800}
+.stars{color:#ffc23d;letter-spacing:.06em}
+.review-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 16px;border-top:1px solid rgba(255,255,255,.08)}
+.review-form input,.review-form textarea,.review-form select{background:#0d1219;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px;color:#e7ecf7;resize:vertical}
+.review-form textarea{grid-column:1/-1;min-height:90px}
+.review-form .submit{grid-column:1/-1;justify-self:end;background:linear-gradient(180deg,#ff3b3b,#d81e1e);border:1px solid #ff3b3b;border-radius:12px;padding:10px 16px}
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.contact-card{background:linear-gradient(180deg,#0b0f14,#111821);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px;box-shadow:0 10px 40px rgba(255,42,42,.08)}
+.contact-card .cta{display:inline-block;margin-top:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+.contact-card.whatsapp .cta{background:linear-gradient(180deg,#30d158,#19b24b);border-color:#25d366;box-shadow:0 14px 30px rgba(48,209,88,.25)}
+@media(max-width:800px){.contact-grid{grid-template-columns:1fr}}
+footer{opacity:.65;padding:24px;text-align:center}
+.small{font-size:.92rem}
+
+
+/* --- flags as images --- */
+.lang-pill .pill-flag {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:18px; margin-right:6px; border-radius:3px; overflow:hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset;
+}
+.lang-pill .pill-flag img { display:block; width:100%; height:100%; object-fit:cover; }
+
+/* --- stronger hero logo watermark --- */
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background: url('images/logo-watermark.png') center 20% / 55% no-repeat;
+  opacity: .16; pointer-events:none; z-index:0;
+  filter: drop-shadow(0 0 16px rgba(255,0,0,.3));
+}
+.hero > * { position:relative; z-index:1; }
+</style>
+<style>
+/* --- FIX: watermark placement & visibility --- */
+.hero .wm-holder{position:relative;}
+.hero .wm-holder .logo-watermark{
+  position:absolute;
+  top:55%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:min(90vw, 900px);
+  max-width:900px;
+  opacity:0.20;
+  filter: drop-shadow(0 0 14px rgba(255,0,0,0.25));
+  pointer-events:none;
+  z-index:0;
+}
+.hero .hero-inner, .hero .wrap { position: relative; z-index: 1; }
+@media (max-width: 600px){
+  .hero .wm-holder .logo-watermark{width:90vw; top:55%;}
+}
+
+/* --- FIX: show flag icons in language buttons --- */
+.lang-switch, #lang-switch {display:flex; gap:.5rem; align-items:center;}
+.lang-btn{
+  display:flex; align-items:center; gap:.5rem;
+  padding:.35rem .7rem; border-radius:999px;
+  background: rgba(0,0,0,.5);
+  border:1px solid rgba(255,0,0,.5);
+  color:#e8eefc; font-weight:700; letter-spacing:.02em;
+}
+.lang-btn .flag{width:18px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset;}
+.lang-btn[aria-current="true"]{box-shadow:0 0 0 3px rgba(255,0,0,.25);}
+</style><style>
+/* Old-style gallery grid: rounded tiles, thick gaps, no layout shift */
+#gallery { margin-top: 10px; }
+#gallery .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+#gallery .gallery a {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a1f28; /* gap color showing through rounded corners */
+  box-shadow: 0 0 0 0 rgba(0,0,0,0);
+}
+/* Aspect ratio enforcement similar to the old layout */
+#gallery .gallery a::before {
+  content: "";
+  display: block;
+  padding-top: 62.5%; /* ~16:10 ratio; tweak if needed */
+}
+#gallery .gallery a img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* already clipped by parent */
+}
+/* Small screens: slightly tighter spacing */
+@media (max-width: 640px) {
+  #gallery .gallery { gap: 10px; grid-template-columns: repeat(2, 1fr); }
+}
+</style><style>
+/* Gallery grid — matches old layout look */
+#gallery { margin-top: 12px; }
+#gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+#gallery .gallery-grid a {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #12161d;
+}
+#gallery .gallery-grid a::before {
+  content: "";
+  display: block;
+  padding-top: 62%; /* ~16:10 tile */
+}
+#gallery .gallery-grid img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  #gallery .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+@media (max-width: 520px) {
+  #gallery .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+}
+</style><style>
+/* Gallery grid visuals */
+#gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+#gallery .gallery-grid a {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #12161d;
+}
+#gallery .gallery-grid a::before {
+  content: "";
+  display: block;
+  padding-top: 62%;
+}
+#gallery .gallery-grid img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+@media (max-width: 900px) { #gallery .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+@media (max-width: 520px) { #gallery .gallery-grid { grid-template-columns: 1fr; gap: 10px; } }
+</style><style>
+/* ===== Mobile Gallery Enhancements ===== */
+#gallery .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#gallery .gallery-grid a{position:relative;display:block;border-radius:16px;overflow:hidden;background:#12161d}
+#gallery .gallery-grid a::before{content:"";display:block;padding-top:62%}
+#gallery .gallery-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* Tablet */
+@media (max-width: 768px){
+  #gallery{padding-inline:12px}
+  #gallery .gallery-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  #gallery #gallery-title{font-size:34px;margin-bottom:4px}
+  #gallery #gallery-hint{font-size:15px;margin:2px 0 10px;opacity:.9}
+}
+
+/* Phones */
+@media (max-width: 480px){
+  #gallery{padding-inline:10px}
+  #gallery .gallery-grid{grid-template-columns:1fr;gap:10px}
+  #gallery .gallery-grid a::before{padding-top:60%}
+  #gallery #gallery-title{font-size:28px;margin-bottom:2px}
+  #gallery #gallery-hint{font-size:14px}
+}
+
+/* Fullscreen lightbox on mobile */
+#lbBackdrop{backdrop-filter:saturate(120%) blur(1px)}
+@media (max-width: 480px){
+  #lbWrap img{max-width:96vw;max-height:86vh}
+}
+</style><style>
+/* ===== Mobile header/nav compaction ===== */
+@media (max-width: 480px){
+  header, nav { padding: 8px 12px !important; }
+  header, nav, header > div, nav > div, header .container, nav .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+  }
+  /* Primary nav list */
+  nav ul, header ul {
+    list-style: none;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  nav li, header li { margin: 0 !important; }
+  nav a, header a { font-size: 16px !important; line-height: 1.2 !important; text-decoration: none; }
+  /* Book Now button shrink */
+  .btn, a[class*="btn"], button {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap;
+  }
+  /* Language pills — float to the right end, compact */
+  .lang, .language, .languages, [class*="lang"], [class*="Language"] {
+    display: flex !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+    order: 2;
+  }
+  /* Prevent huge gaps caused by space-around/space-evenly */
+  header, nav { justify-content: space-between !important; }
+  /* Avoid overlap and clipping on small devices */
+  header *, nav * { max-width: 100%; }
+}
+@media (max-width: 360px){
+  nav a, header a { font-size: 15px !important; }
+  .btn, a[class*="btn"], button { font-size: 13px !important; padding: 7px 10px !important; }
+}
+</style><style>
+/* ===== Mobile header polish (neat stacked layout) ===== */
+@media (max-width: 540px){
+  /* Use CSS Grid to line things up nicely */
+  header, .header, .site-header {
+    padding: 10px 14px !important;
+    margin: 0 auto;
+  }
+  header > *, .header > *, .site-header > * {
+    /* wrap inner wrappers into grid */
+  }
+  header, .header, .site-header,
+  header > .container, .header > .container, .site-header > .container {
+    display: grid !important;
+    grid-template-columns: 1fr auto;
+    grid-auto-rows: min-content;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  /* Branding (logo + wordmark) on the left */
+  header img[src*="logo" i], header img[alt*="shark" i] {
+    width: 28px; height: 28px; object-fit: contain; border-radius: 4px; margin-right: 8px;
+  }
+  header h1, header h2, .brand, .branding {
+    display: inline-flex; align-items: center; gap: 8px; margin: 0 !important; line-height: 1.1;
+    font-size: 22px !important; letter-spacing: .3px;
+    grid-column: 1; /* left */
+  }
+
+  /* Language pills on the right */
+  .lang, .language, .languages, [class*="lang"] {
+    grid-column: 2; /* right */
+    display: inline-flex !important;
+    align-items: center; justify-content: flex-end;
+    gap: 8px !important; margin: 0 !important;
+  }
+  .lang a, .language a, .languages a, [class*="lang"] a {
+    padding: 6px 10px !important; font-size: 12px !important; line-height: 1.2 !important;
+  }
+
+  /* Nav links under the brand, full width */
+  header nav, nav.primary, header ul, .nav, .main-nav, .menu {
+    grid-column: 1 / -1;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    margin: 2px 0 0 !important;
+    padding: 0 !important;
+    list-style: none;
+  }
+  header nav a, .nav a, .menu a { font-size: 16px !important; line-height: 1.2 !important; }
+
+  /* Book Now button aligned left below links */
+  a[class*="book" i], button[class*="book" i], .btn-book, .btn-primary {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    line-height: 1.2;
+    margin-top: 2px !important;
+    white-space: nowrap;
+  }
+
+  /* Remove extra spacing that pushes content too far */
+  header + * { margin-top: 8px !important; }
+}
+</style><style>
+/* === Global Customer Reviews (Firestore) === */
+#reviews { max-width: 1100px; margin: 28px auto; padding: 0 16px; }
+#reviews h2 { margin: 0 0 6px; font-size: 32px; }
+#reviews p { margin: 4px 0 12px; opacity:.9 }
+#reviews #reviews-summary { margin: 6px 0 8px; font-size: 14px; opacity:.85 }
+#reviews .reviews-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 12px 0 16px; }
+#reviews .review-card { background:#12161d; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:12px; }
+#reviews .review-card .meta { display:flex; gap:10px; align-items:center; margin-bottom:6px; }
+#reviews .review-card .name { font-weight:600; }
+#reviews .stars { color:#f7b500; font-size:14px; letter-spacing:.4px }
+#reviews .date { opacity:.7; font-size:12px; margin-left:auto }
+#reviews #review-form { display:grid; grid-template-columns: 1fr auto; gap:10px; }
+#reviews #review-form input, #reviews #review-form select, #reviews #review-form textarea { background:#0f141b; color:#eaeef6; border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:10px; font:inherit; }
+#reviews #review-form textarea { grid-column: 1 / -1; min-height: 96px; resize: vertical; }
+#reviews #review-form button { justify-self:start; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:#222832; color:#fff; cursor:pointer }
+@media (max-width: 640px){ #reviews h2{font-size:26px} #reviews .reviews-list{grid-template-columns: 1fr} }
+</style></head>
+<body>
+<header class="header">
+<div class="container nav">
+<div class="brand">
+<img alt="Shark X Logo" src="images/logo.png"/>
+<span>SHARK X</span>
+</div>
+<nav>
+<ul>
+<li><a data-i18n="nav_about" href="#about">About</a></li>
+<li><a data-i18n="nav_adventures" href="#adventures">Adventures</a></li>
+<li><a data-i18n="nav_gallery" href="#gallery">Gallery</a></li>
+<li><a class="btn" data-i18n="nav_book" href="#contact">Book Now</a></li>
+</ul>
+</nav>
+<div class="langs"><button aria-label="EN" class="lang-btn" data-lang="en"><img alt="EN" class="flag" src="assets/flags/en.svg"/> EN</button><button aria-label="RU" class="lang-btn" data-lang="ru"><img alt="RU" class="flag" src="assets/flags/ru.svg"/> RU</button><button aria-label="DE" class="lang-btn" data-lang="de"><img alt="DE" class="flag" src="assets/flags/de.svg"/> DE</button></div>
+</div>
+</header>
+<section class="hero gridlines">
+<div class="watermark wm-holder"><img alt="Shark X watermark" class="logo-watermark" src="images/logo.png"/></div>
+<div class="container">
+<h1><span data-i18n="hero_dive1">Dive Into the</span> <span class="red" data-i18n="hero_future">Future</span></h1>
+<div class="sub" data-i18n="hero_sub">Premium scuba diving • Sea trips • Private charters</div>
+<div class="btns">
+<a class="btn primary" data-i18n="cta_book" href="https://wa.me/201023719397" rel="noopener">Book Your Dive</a>
+<a class="btn" data-i18n="cta_explore" href="#adventures">Explore Adventures</a>
+</div>
+<div class="sub locations" data-i18n="hero_locs">Hurghada • Safaga • Marsa Alam</div>
+</div>
+</section>
+<main class="container">
+<section id="about">
+<h2 data-i18n="about_title">About Shark X</h2>
+<p class="lead" data-i18n="about_p1">
+      At Shark X, we deliver unforgettable Red Sea experiences led by a professional, safety-first team. 
+      Our mission is simple: the customer's best service, every time.
+    </p>
+<p class="lead" data-i18n="about_p2">
+      Based in Hurghada, we craft special dive trips in Safaga and Marsa Alam — including wrecks like the legendary SS Thistlegorm — as well as private boat charters and island escapes.
+    </p>
+<ul class="lead">
+<li data-i18n="about_b1">Beginner to pro-level dive programs</li>
+<li data-i18n="about_b2">Wreck, reef, night &amp; safari dives</li>
+<li data-i18n="about_b3">Custom private trips &amp; boats</li>
+<li data-i18n="about_b4">Price details &amp; packages via contact</li>
+</ul>
+</section>
+<section id="adventures" style="margin-top:28px">
+<h2 data-i18n="adv_title">Our Adventures</h2>
+<div class="cards">
+<article class="card" data-modal="coral-modal">
+<img alt="Coral reefs and turtle" src="images/cover_coral_turtle.jpg"/>
+<div class="body">
+<div class="title" data-i18n="adv_coral_title">Coral Reef Diving</div>
+<div class="text" data-i18n="adv_coral_text">Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.</div>
+</div>
+</article>
+<article class="card" data-modal="wreck-modal">
+<img alt="Red Sea wreck diving" src="images/cover_wreck.jpg"/>
+<div class="body">
+<div class="title" data-i18n="adv_wreck_title">Wreck Diving</div>
+<div class="text" data-i18n="adv_wreck_text">Iconic wrecks including SS Thistlegorm—a must for adventure seekers.</div>
+</div>
+</article>
+<article class="card" data-modal="safari-modal">
+<img alt="Shark diving &amp; liveaboard safaris" src="images/cover_safari_shark.jpg"/>
+<div class="body">
+<div class="title" data-i18n="adv_safari_title">Safari &amp; Special Dives</div>
+<div class="text" data-i18n="adv_safari_text">Pro-level itineraries in Safaga &amp; Marsa Alam with guided safaris.</div>
+</div>
+</article>
+<article class="card" data-modal="private-modal">
+<img alt="Private boats &amp; islands" src="images/cover_island.jpg"/>
+<div class="body">
+<div class="title" data-i18n="adv_private_title">Private Boats &amp; Islands</div>
+<div class="text" data-i18n="adv_private_text">Tailored private charters for families, couples, or content creators.</div>
+</div>
+</article>
+</div>
+<p class="lead small" data-i18n="adv_note" style="margin-top:12px">
+      All pricing &amp; package info is shared on request — contact us to plan your trip.
+    </p>
+</section>
+<div class="modal" id="coral-modal">
+<div class="modal-card">
+<div class="modal-head">
+<h3 data-i18n="coral_h">Coral Reef Classics</h3>
+<button class="close-btn" data-close="">✕</button>
+</div>
+<div class="modal-body">
+<p data-i18n="coral_p">
+          Tremendous reef sites in <b>Hurghada</b> and <b>Safaga</b> with calm lagoons, wide ledges and a dramatic blue drop-off. 
+          Depth range: <b>5–50 m</b>. Turtles and dolphins are frequent guests.
+        </p>
+<div class="modal-gallery">
+<img src="images/coral_diver1.jpg"/><img src="images/coral_diver2.jpg"/><img src="images/coral_diver3.jpg"/>
+<img src="images/coral_dolphin.jpg"/><img src="images/cover_coral_turtle.jpg"/><img src="images/island_alt1.jpg"/>
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="wreck-modal">
+<div class="modal-card">
+<div class="modal-head">
+<h3 data-i18n="wreck_h">Wrecks &amp; Underwater Museum</h3>
+<button class="close-btn" data-close="">✕</button>
+</div>
+<div class="modal-body">
+<p data-i18n="wreck_p">
+          Explore a range of wrecks around <b>Hurghada</b> plus an underwater museum of tanks and armored vehicles (depths <b>8–28 m</b>). 
+          Day trips also reach the famous <b>SS Thistlegorm</b> for an epic adventure.
+        </p>
+<div class="modal-gallery">
+<img src="images/wreck_big.jpg"/><img src="images/tank1.jpg"/><img src="images/tank2.jpg"/><img src="images/tank3.jpg"/>
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="safari-modal">
+<div class="modal-card">
+<div class="modal-head">
+<h3 data-i18n="safari_h">Red Sea Safaris</h3>
+<button class="close-btn" data-close="">✕</button>
+</div>
+<div class="modal-body">
+<p data-i18n="safari_p">
+          We offer <b>7‑day</b> liveaboard safaris on exclusive boats to the best shark and pelagic sites. 
+          Itineraries include <b>Safaga</b> and <b>Marsa Alam</b>, with regular dolphin encounters and steep walls down to <b>50 m</b>.
+        </p>
+<div class="modal-gallery">
+<img src="images/liveaboard.jpg"/><img src="images/cover_safari_shark.jpg"/><img src="images/island_alt2.jpg"/>
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="private-modal">
+<div class="modal-card">
+<div class="modal-head">
+<h3 data-i18n="private_h">Private Boats &amp; Islands</h3>
+<button class="close-btn" data-close="">✕</button>
+</div>
+<div class="modal-body">
+<p data-i18n="private_p">
+          We run <b>private and shared</b> boat trips that include <b>islands</b>, snorkeling and diving stops. 
+          Perfect for families, couples and creators who want flexible days and golden‑hour photos.
+        </p>
+<div class="modal-gallery">
+<img src="images/cover_island.jpg"/><img src="images/island_alt1.jpg"/><img src="images/island_alt2.jpg"/>
+</div>
+</div>
+</div>
+</div>
+<section id="gallery"><h2 id="gallery-title">Gallery</h2><p id="gallery-hint">Click any photo to enlarge.</p><div class="gallery"><a href="assets/gallery/coral_dolphin.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/coral_dolphin.jpg"/></a><a href="assets/gallery/_coral_dolphin.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_coral_dolphin.jpg"/></a><a href="assets/gallery/gallery_new_4.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/gallery_new_4.jpeg"/></a><a href="assets/gallery/_gallery_new_4.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/_gallery_new_4.jpeg"/></a><a href="assets/gallery/gallery_new_5.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/gallery_new_5.jpeg"/></a><a href="assets/gallery/_gallery_new_5.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/_gallery_new_5.jpeg"/></a><a href="assets/gallery/gallery_new_2.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/gallery_new_2.jpeg"/></a><a href="assets/gallery/_gallery_new_2.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/_gallery_new_2.jpeg"/></a><a href="assets/gallery/tank1.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/tank1.jpg"/></a><a href="assets/gallery/_tank1.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_tank1.jpg"/></a><a href="assets/gallery/island_alt1.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/island_alt1.jpg"/></a><a href="assets/gallery/_island_alt1.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_island_alt1.jpg"/></a><a href="assets/gallery/tank3.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/tank3.jpg"/></a><a href="assets/gallery/_tank3.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_tank3.jpg"/></a><a href="assets/gallery/wreck_big.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/wreck_big.jpg"/></a><a href="assets/gallery/_wreck_big.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_wreck_big.jpg"/></a><a href="assets/gallery/tank2.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/tank2.jpg"/></a><a href="assets/gallery/_tank2.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_tank2.jpg"/></a><a href="assets/gallery/island_alt2.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/island_alt2.jpg"/></a><a href="assets/gallery/_island_alt2.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_island_alt2.jpg"/></a><a href="assets/gallery/gallery_new_3.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/gallery_new_3.jpeg"/></a><a href="assets/gallery/_gallery_new_3.jpeg"><img alt="Gallery" loading="lazy" src="assets/gallery/_gallery_new_3.jpeg"/></a><a href="assets/gallery/cover_safari_shark.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/cover_safari_shark.jpg"/></a><a href="assets/gallery/_cover_safari_shark.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_cover_safari_shark.jpg"/></a><a href="assets/gallery/cover_island.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/cover_island.jpg"/></a><a href="assets/gallery/_cover_island.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_cover_island.jpg"/></a><a href="assets/gallery/coral_diver2.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/coral_diver2.jpg"/></a><a href="assets/gallery/_coral_diver2.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_coral_diver2.jpg"/></a><a href="assets/gallery/coral_diver3.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/coral_diver3.jpg"/></a><a href="assets/gallery/_coral_diver3.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_coral_diver3.jpg"/></a><a href="assets/gallery/cover_coral_turtle.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/cover_coral_turtle.jpg"/></a><a href="assets/gallery/_cover_coral_turtle.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_cover_coral_turtle.jpg"/></a><a href="assets/gallery/coral_diver1.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/coral_diver1.jpg"/></a><a href="assets/gallery/_coral_diver1.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_coral_diver1.jpg"/></a><a href="assets/gallery/cover_wreck.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/cover_wreck.jpg"/></a><a href="assets/gallery/_cover_wreck.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_cover_wreck.jpg"/></a><a href="assets/gallery/liveaboard.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/liveaboard.jpg"/></a><a href="assets/gallery/_liveaboard.jpg"><img alt="Gallery" loading="lazy" src="assets/gallery/_liveaboard.jpg"/></a></div></section>
+<section id="reviews" style="margin-top:30px">
+<div class="reviews-box">
+<div class="reviews-head">
+<h3 data-i18n="rev_title">Customer Reviews</h3>
+<span class="pill"><span id="reviewCount">0</span></span>
+<button class="btn" data-i18n="rev_open" id="toggleReviews">Open Reviews</button>
+</div>
+<div id="reviewsPanel" style="display:none">
+<div class="reviews-list" id="reviewsList"></div>
+<form class="review-form" id="reviewForm">
+<input id="revName" placeholder="Your name" type="text"/>
+<select id="revStars">
+<option value="5">★★★★★</option>
+<option value="4">★★★★☆</option>
+<option value="3">★★★☆☆</option>
+<option value="2">★★☆☆☆</option>
+<option value="1">★☆☆☆☆</option>
+</select>
+<textarea id="revText" placeholder="Share your experience…"></textarea>
+<button class="submit" data-i18n="rev_submit" type="submit">Post Review</button>
+</form>
+</div>
+</div>
+</section>
+<section id="contact" style="margin-top:28px">
+<h2 data-i18n="contact_title">Contact &amp; Booking</h2>
+<p class="lead" data-i18n="contact_p">Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.</p>
+<div class="contact-grid">
+<div class="contact-card whatsapp">
+<div class="title">WhatsApp</div>
+<a class="cta" data-i18n="contact_whatsapp" href="https://wa.me/201023719397" rel="noopener">Reserve Your Dive on WhatsApp</a>
+</div>
+<div class="contact-card">
+<div class="title" data-i18n="contact_email">E‑mail</div>
+<div>tanany389@gmail.com</div>
+</div>
+<div class="contact-card">
+<div class="title">Instagram</div>
+<a class="cta" href="https://www.instagram.com/sharkx46" rel="noopener">@sharkx46</a>
+</div>
+</div>
+</section>
+</main>
+<footer>© Shark X • <span data-i18n="footer">The Sea Within Your Heart</span></footer>
+<script>
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+// Language translations
+const T = {
+  en: {
+    nav_about:"About", nav_adventures:"Adventures", nav_gallery:"Gallery", nav_book:"Book Now",
+    hero_dive1:"Dive Into the", hero_future:"Future", hero_sub:"Premium scuba diving • Sea trips • Private charters",
+    cta_book:"Book Your Dive", cta_explore:"Explore Adventures", hero_locs:"Hurghada • Safaga • Marsa Alam",
+    about_title:"About Shark X",
+    about_p1:"At Shark X, we deliver unforgettable Red Sea experiences led by a professional, safety-first team. Our mission is simple: the customer's best service, every time.",
+    about_p2:"Based in Hurghada, we craft special dive trips in Safaga and Marsa Alam — including wrecks like the legendary SS Thistlegorm — as well as private boat charters and island escapes.",
+    about_b1:"Beginner to pro-level dive programs",
+    about_b2:"Wreck, reef, night & safari dives",
+    about_b3:"Custom private trips & boats",
+    about_b4:"Price details & packages via contact",
+    adv_title:"Our Adventures",
+    adv_coral_title:"Coral Reef Diving",
+    adv_coral_text:"Crystal-clear sites teeming with turtles, rays and vibrant coral gardens.",
+    adv_wreck_title:"Wreck Diving",
+    adv_wreck_text:"Iconic wrecks including SS Thistlegorm—a must for adventure seekers.",
+    adv_safari_title:"Safari & Special Dives",
+    adv_safari_text:"Pro-level itineraries in Safaga & Marsa Alam with guided safaris.",
+    adv_private_title:"Private Boats & Islands",
+    adv_private_text:"Tailored private charters for families, couples, or content creators.",
+    adv_note:"All pricing & package info is shared on request — contact us to plan your trip.",
+    coral_h:"Coral Reef Classics",
+    coral_p:"Tremendous reef sites in Hurghada and Safaga with calm lagoons, wide ledges and a dramatic blue drop-off. Depth range: 5–50 m. Turtles and dolphins are frequent guests.",
+    wreck_h:"Wrecks & Underwater Museum",
+    wreck_p:"Explore a range of wrecks around Hurghada plus an underwater museum of tanks and armored vehicles (depths 8–28 m). Day trips also reach the famous SS Thistlegorm for an epic adventure.",
+    safari_h:"Red Sea Safaris",
+    safari_p:"We offer 7‑day liveaboard safaris on exclusive boats to the best shark and pelagic sites. Itineraries include Safaga and Marsa Alam, with regular dolphin encounters and steep walls down to 50 m.",
+    private_h:"Private Boats & Islands",
+    private_p:"We run private and shared boat trips that include islands, snorkeling and diving stops. Perfect for families, couples and creators who want flexible days and golden‑hour photos.",
+    gal_title:"Gallery", gal_hint:"Click any photo to enlarge.",
+    rev_title:"Customer Reviews", rev_open:"Open Reviews", rev_submit:"Post Review",
+    contact_title:"Contact & Booking", contact_p:"Tell us your dates, experience level, and the adventure you want. We’ll craft a perfect plan.",
+    contact_whatsapp:"Reserve Your Dive on WhatsApp", contact_email:"E‑mail",
+    footer:"The Sea Within Your Heart"
+  },
+  ru: {
+    nav_about:"О нас", nav_adventures:"Приключения", nav_gallery:"Галерея", nav_book:"Забронировать",
+    hero_dive1:"Погружайся в", hero_future:"будущее", hero_sub:"Премиальные дайв‑туры • Морские прогулки • Частные чартеры",
+    cta_book:"Забронировать дайв", cta_explore:"Смотреть программы", hero_locs:"Хургада • Сафага • Марса‑Алам",
+    about_title:"О Shark X",
+    about_p1:"Shark X дарит незабываемые впечатления от Красного моря с профессиональной и безопасной командой. Наша миссия проста: лучший сервис для клиента — всегда.",
+    about_p2:"База в Хургаде, а также спец‑туры в Сафаге и Марса‑Аламе — включая легендарный SS Thistlegorm — плюс частные чартеры и острова.",
+    about_b1:"Программы от новичка до профи",
+    about_b2:"Рэки, рифы, ночные и сафари‑дайвы",
+    about_b3:"Индивидуальные поездки и лодки",
+    about_b4:"Цены и пакеты — по запросу",
+    adv_title:"Наши приключения",
+    adv_coral_title:"Погружения на рифах",
+    adv_coral_text:"Кристально чистые локации с черепахами, скатами и яркими коралловыми садами.",
+    adv_wreck_title:"Дайвинг на затонувшие суда",
+    adv_wreck_text:"Знаковые рэки, включая SS Thistlegorm — обязательны для искателей приключений.",
+    adv_safari_title:"Сафари и спец‑дайвы",
+    adv_safari_text:"Маршруты проф‑уровня в Сафаге и Марса‑Аламе с гидом.",
+    adv_private_title:"Частные лодки и острова",
+    adv_private_text:"Чартеры для семей, пар и создателей контента.",
+    adv_note:"Вся информация о пакетах — по запросу. Свяжитесь с нами для планирования.",
+    coral_h:"Классика коралловых рифов",
+    coral_p:"Отличные споты Хургады и Сафаги: лагуны, ступени, стенка в синюю бездну. Глубины 5–50 м. Часто встречаются черепахи и дельфины.",
+    wreck_h:"Рэки и подводный музей",
+    wreck_p:"Разнообразные рэки у Хургады и подводный музей с танками и бронетехникой (8–28 м). Однодневки включают знаменитый SS Thistlegorm.",
+    safari_h:"Сафари по Красному морю",
+    safari_p:"Мы проводим 7‑дневные сафари на эксклюзивных лайвэбордах к лучшим «акульим» и пелагическим точкам. В маршрутах — Сафага и Марса‑Алам, частые встречи с дельфинами и стены до 50 м.",
+    private_h:"Частные лодки и острова",
+    private_p:"Предлагаем частные и совместные выходы с островами, сноркелингом и дайв‑стопами.",
+    gal_title:"Галерея", gal_hint:"Нажмите на фото, чтобы открыть.",
+    rev_title:"Отзывы клиентов", rev_open:"Показать отзывы", rev_submit:"Оставить отзыв",
+    contact_title:"Контакты и бронирование", contact_p:"Сообщите даты, уровень и желаемое приключение — подберём идеальный план.",
+    contact_whatsapp:"Забронировать в WhatsApp", contact_email:"E‑mail",
+    footer:"Море внутри твоего сердца"
+  },
+  de: {
+    nav_about:"Über uns", nav_adventures:"Abenteuer", nav_gallery:"Galerie", nav_book:"Jetzt buchen",
+    hero_dive1:"Tauch ein in die", hero_future:"Zukunft", hero_sub:"Premium‑Tauchgänge • Seetrips • Private Charters",
+    cta_book:"Tauchgang buchen", cta_explore:"Abenteuer ansehen", hero_locs:"Hurghada • Safaga • Marsa Alam",
+    about_title:"Über Shark X",
+    about_p1:"Shark X liefert unvergessliche Erlebnisse im Roten Meer mit einem professionellen, sicherheitsorientierten Team. Unser Ziel: der beste Kundenservice – jedes Mal.",
+    about_p2:"Mit Basis in Hurghada organisieren wir Spezial‑Tauchgänge in Safaga und Marsa Alam – inkl. Wracks wie der legendären SS Thistlegorm – sowie private Bootscharter und Inseltrips.",
+    about_b1:"Programme vom Anfänger bis Pro",
+    about_b2:"Wrack‑, Riff‑, Nacht‑ & Safari‑Dives",
+    about_b3:"Individuelle Trips & Boote",
+    about_b4:"Preise & Pakete auf Anfrage",
+    adv_title:"Unsere Abenteuer",
+    adv_coral_title:"Korallenriff‑Tauchen",
+    adv_coral_text:"Kristallklare Spots mit Schildkröten, Rochen und bunten Korallengärten.",
+    adv_wreck_title:"Wrack‑Tauchen",
+    adv_wreck_text:"Ikonische Wracks inkl. SS Thistlegorm – ein Muss für Abenteurer.",
+    adv_safari_title:"Safaris & Spezial‑Dives",
+    adv_safari_text:"Pro‑Routen in Safaga & Marsa Alam mit Guide.",
+    adv_private_title:"Private Boote & Inseln",
+    adv_private_text:"Maßgeschneiderte Charter für Familien, Paare oder Creator.",
+    adv_note:"Alle Preise & Pakete auf Anfrage – kontaktiere uns für die Planung.",
+    coral_h:"Korallen‑Klassiker",
+    coral_p:"Großartige Riffe in Hurghada und Safaga: Lagunen, Plateaus, Drop‑off. Tiefen 5–50 m. Schildkröten & Delfine häufig.",
+    wreck_h:"Wracks & Unterwassermuseum",
+    wreck_p:"Vielfältige Wracks bei Hurghada sowie ein Unterwassermuseum mit Panzern (8–28 m). Tagestrips führen auch zur berühmten SS Thistlegorm.",
+    safari_h:"Rotes‑Meer‑Safaris",
+    safari_p:"Wir bieten 7‑tägige Liveaboard‑Safaris auf exklusiven Booten zu den besten Hai‑ und Pelagik‑Spots. Routen inkl. Safaga und Marsa Alam; regelmäßige Delfin‑Sichtungen und Steilwände bis 50 m.",
+    private_h:"Private Boote & Inseln",
+    private_p:"Private und gemeinsame Bootstouren mit Inseln, Schnorcheln und Tauchstopps.",
+    gal_title:"Galerie", gal_hint:"Zum Vergrößern klicken.",
+    rev_title:"Kundenbewertungen", rev_open:"Bewertungen öffnen", rev_submit:"Bewertung senden",
+    contact_title:"Kontakt & Buchung", contact_p:"Sag uns Daten, Level & Wunsch – wir planen perfekt.",
+    contact_whatsapp:"Auf WhatsApp reservieren", contact_email:"E‑Mail",
+    footer:"Das Meer in deinem Herzen"
+  }
+};
+
+function setLang(lang) {
+  const dict = T[lang] || T.en;
+  $$(".lang-btn").forEach(b=>b.classList.toggle("active", b.dataset.lang===lang));
+  $("[lang]")?.setAttribute("lang", lang);
+  $("[data-i18n='hero_future']").classList.toggle("red", true);
+  $("[data-i18n='hero_future']").style.color = "var(--red)";
+  $("[data-i18n='hero_dive1']").style.color = "";
+  $$("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if(dict[key]) el.textContent = dict[key];
+  });
+  localStorage.setItem("sharkx_lang", lang);
+}
+$$(".lang-btn").forEach(btn=>btn.addEventListener("click",()=> setLang(btn.dataset.lang)));
+setLang(localStorage.getItem("sharkx_lang")||"en");
+
+// Cards -> modals
+$$(".card").forEach(c=>c.addEventListener("click",()=> $("#"+c.dataset.modal).classList.add("open")));
+$$("[data-close]").forEach(b=>b.addEventListener("click",()=> b.closest(".modal").classList.remove("open")));
+window.addEventListener("keydown",e=>{ if(e.key==="Escape") $$(".modal.open").forEach(m=>m.classList.remove("open")); });
+
+// Gallery click (simple enlarge using a new tab)
+$("#galleryGrid")?.addEventListener("click", e=>{
+  if(e.target.tagName!=="IMG") return;
+  const src = e.target.getAttribute("src");
+  window.open(src, "_blank");
+});
+
+// Reviews with localStorage
+const seed = [
+  {name:"Ahmed S.", stars:5, text:"Best dive week of my life — dolphins, pristine reefs, and a super safe team."},
+  {name:"Katrin M.", stars:5, text:"Professional guides and creative routes. We saw turtles, rays and an epic wreck."},
+  {name:"Omar H.", stars:5, text:"Private boat day was flawless. Islands + snorkel for the kids = perfect."},
+  {name:"Lena K.", stars:5, text:"Safari trip delivered sharks and zero stress. Meals, cabins, everything 10/10."}
+];
+const dbKey = "sharkx_reviews";
+
+function getReviews(){
+  const stored = localStorage.getItem(dbKey);
+  if(stored) return JSON.parse(stored);
+  localStorage.setItem(dbKey, JSON.stringify(seed));
+  return seed;
+}
+function saveReviews(list){ localStorage.setItem(dbKey, JSON.stringify(list)); }
+function renderReviews(){
+  const list = getReviews();
+  $("#reviewCount").textContent = list.length;
+  const box = $("#reviewsList");
+  box.innerHTML = list.map(r=>`
+    <div class="review">
+      <div class="name">${r.name}</div>
+      <div class="stars">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
+      <div class="text">${r.text}</div>
+    </div>`).join("");
+}
+renderReviews();
+$("#toggleReviews").addEventListener("click", ()=>{
+  const p = $("#reviewsPanel");
+  p.style.display = (p.style.display==="none"||!p.style.display) ? "block" : "none";
+});
+
+$("#reviewForm").addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const name = $("#revName").value.trim()||"Guest";
+  const stars = +$("#revStars").value||5;
+  const text = $("#revText").value.trim();
+  if(!text) return;
+  const list = getReviews();
+  list.unshift({name, stars, text});
+  saveReviews(list);
+  $("#revName").value = ""; $("#revText").value = ""; $("#revStars").value = 5;
+  renderReviews();
+  $("#reviewsPanel").style.display = "block";
+});
+</script>
+<script>
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const lang = btn.dataset.lang;
+    // Try the global setLang if present
+    if (window.setLang) window.setLang(lang);
+    document.querySelectorAll('.lang-btn').forEach(b=>b.removeAttribute('aria-current'));
+    btn.setAttribute('aria-current','true');
+  });
+});
+</script>
+<!-- Simple in-page lightbox for Gallery -->
+<style>
+  #galleryModalBackdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.8);z-index:9999}
+  #galleryModal{max-width:90vw;max-height:90vh}
+  #galleryModal img{max-width:90vw;max-height:90vh;display:block;border-radius:6px}
+  #galleryModalClose{position:absolute;top:16px;right:20px;font-size:32px;cursor:pointer;color:#fff}
+</style>
+<script>
+(function(){
+  // Clean any target="_blank" inside gallery
+  function imageLinks(){
+    return Array.from(document.querySelectorAll('#gallery a')).filter(a=>{
+      const h=(a.getAttribute('href')||'').toLowerCase();
+      return /\.(jpg|jpeg|png|gif|webp|avif)$/.test(h);
+    });
+  }
+  function stripTargets(){
+    imageLinks().forEach(a=>a.removeAttribute('target'));
+  }
+  document.addEventListener('DOMContentLoaded', stripTargets);
+
+  // Remove broken thumbnails automatically
+  document.addEventListener('error', function(e){
+    const el = e.target;
+    if(el.tagName==='IMG' && el.closest('#gallery')){
+      const link = el.closest('a');
+      if(link) link.remove(); else el.remove();
+    }
+  }, true); // use capture to catch img errors
+
+  // Build lightbox if missing
+  if(!document.getElementById('lbBackdrop')){
+    const tmpl=`
+    <style>
+      #lbBackdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.9);z-index:9999}
+      #lbWrap{position:relative;max-width:92vw;max-height:92vh}
+      #lbWrap img{max-width:92vw;max-height:92vh;display:block;border-radius:8px}
+      #lbClose{position:absolute;top:12px;right:18px;font-size:32px;color:#fff;cursor:pointer}
+      .lbBtn{position:absolute;top:50%;transform:translateY(-50%);font-size:42px;background:transparent;border:none;color:#fff;cursor:pointer;padding:8px 14px}
+      #lbPrev{left:10px} #lbNext{right:10px}
+    </style>
+    <div id="lbBackdrop" role="dialog" aria-modal="true">
+      <div id="lbWrap">
+        <span id="lbClose">×</span>
+        <button id="lbPrev" class="lbBtn" aria-label="Previous">‹</button>
+        <img alt="Photo"/>
+        <button id="lbNext" class="lbBtn" aria-label="Next">›</button>
+      </div>
+    </div>`;
+    document.body.insertAdjacentHTML('beforeend', tmpl);
+  }
+  const backdrop=document.getElementById('lbBackdrop');
+  const imgEl=backdrop.querySelector('img');
+  const closeBtn=document.getElementById('lbClose');
+  const nextBtn=document.getElementById('lbNext');
+  const prevBtn=document.getElementById('lbPrev');
+
+  let idx=0;
+  function openAt(i){
+    const L=imageLinks();
+    if(!L.length) return;
+    idx=(i+L.length)%L.length;
+    imgEl.src=L[idx].getAttribute('href');
+    backdrop.style.display='flex';
+    document.body.style.overflow='hidden';
+  }
+  function close(){ backdrop.style.display='none'; imgEl.src=''; document.body.style.overflow=''; }
+  function next(){ openAt(idx+1); }
+  function prev(){ openAt(idx-1); }
+
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', (e)=>{ if(e.target===backdrop) close(); });
+  document.addEventListener('keydown', (e)=>{
+    if(backdrop.style.display!=='flex') return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowRight') next();
+    if(e.key==='ArrowLeft') prev();
+  });
+  nextBtn.addEventListener('click', (e)=>{ e.stopPropagation(); next(); });
+  prevBtn.addEventListener('click', (e)=>{ e.stopPropagation(); prev(); });
+
+  // Intercept clicks anywhere inside #gallery
+  document.addEventListener('click', function(ev){
+    const a = ev.target.closest('#gallery a');
+    if(!a) return;
+    const L=imageLinks();
+    const i=L.indexOf(a);
+    if(i===-1) return;
+    ev.preventDefault();
+    a.removeAttribute('target'); // just in case
+    openAt(i);
+  });
+})();
+</script>
+<script>
+(function(){
+  function byId(id){return document.getElementById(id)}
+  var b=byId('lbBackdrop');
+  if(!b){
+    // if the lightbox isn't on this build, no-op
+    return;
+  }
+  var startX=0, startY=0;
+  b.addEventListener('touchstart', function(e){
+    if(!e.touches.length) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, {passive:true});
+  b.addEventListener('touchend', function(e){
+    if(!e.changedTouches.length) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if(Math.abs(dx) > 40 && Math.abs(dy) < 60){
+      // swipe left/right -> next/prev
+      if(typeof window.lbNext === 'function' && typeof window.lbPrev === 'function'){
+        (dx < 0 ? window.lbNext : window.lbPrev)();
+      } else {
+        // fallback: dispatch arrow key
+        document.dispatchEvent(new KeyboardEvent('keydown', {key: (dx<0?'ArrowRight':'ArrowLeft')}));
+      }
+    }
+  }, {passive:true});
+  // Prevent rubber-band scroll while open
+  b.addEventListener('wheel', function(e){ e.preventDefault(); }, {passive:false});
+  b.addEventListener('touchmove', function(e){ e.preventDefault(); }, {passive:false});
+})();
+</script>
+
+<!-- Firebase SDKs (compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script>
+// Replace with your Firebase config (Console → Project settings → General → Your apps → Web)
+const firebaseConfig = {
+  apiKey: "REPLACE_ME",
+  authDomain: "REPLACE_ME.firebaseapp.com",
+  projectId: "REPLACE_ME",
+  appId: "REPLACE_ME"
+};
+
+(function(){
+  const list = document.getElementById('reviews-list');
+  const form = document.getElementById('review-form');
+  const summary = document.getElementById('reviews-summary');
+
+  function starString(n){ n = Math.max(1, Math.min(5, parseInt(n||'5'))); return '★'.repeat(n) + '☆'.repeat(5-n); }
+  function esc(s){ return (s||'').replace(/</g,'&lt;'); }
+  function avg(nums){ return nums.length ? nums.reduce((a,b)=>a+b,0)/nums.length : 0; }
+
+  let col = null;
+  try {
+    if(firebaseConfig.apiKey !== "REPLACE_ME"){
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      col = db.collection('reviews'); // feel free to rename
+    }
+  } catch(e){
+    console.warn('Firebase init failed:', e);
+  }
+
+  if(!col){
+    summary.textContent = 'Reviews backend not configured yet. Open index.html and paste your Firebase config.';
+    list.innerHTML = '<div class="review-card"><div class="meta"><span class="name">Setup needed</span></div><div>Paste your Firebase config values into the script block near the end of this file.</div></div>';
+    if(form){ form.addEventListener('submit', e=>{ e.preventDefault(); alert('Configure Firebase first.'); }); }
+    return;
+  }
+
+  // Live read
+  col.orderBy('createdAt','desc').limit(100).onSnapshot(function(snap){
+    const items = [];
+    snap.forEach(doc=>{
+      const d = doc.data() || {};
+      items.push({
+        name: d.name || 'Anonymous',
+        rating: parseInt(d.rating || 5),
+        message: d.message || '',
+        createdAt: d.createdAt && d.createdAt.toDate ? d.createdAt.toDate() : new Date()
+      });
+    });
+    render(items);
+  });
+
+  function render(arr){
+    list.innerHTML = '';
+    if(!arr.length){
+      summary.textContent = 'No reviews yet.';
+      list.innerHTML = '<div class="review-card"><div class="meta"><span class="name">Be the first to review</span></div><div>Share your experience above.</div></div>';
+      return;
+    }
+    const a = avg(arr.map(r=>r.rating));
+    summary.innerHTML = 'Average rating: <strong>' + a.toFixed(1) + '</strong> / 5 (' + arr.length + ' review' + (arr.length>1?'s':'') + ')';
+    arr.forEach(r=>{
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      const dateStr = new Date(r.createdAt).toLocaleDateString();
+      card.innerHTML =
+        '<div class="meta">'
+        + '<span class="name">' + esc(r.name) + '</span>'
+        + ' <span class="stars">' + '★'.repeat(r.rating) + '☆'.repeat(5-r.rating) + '</span>'
+        + ' <span class="date">' + dateStr + '</span>'
+        + '</div>'
+        + '<div class="text">' + esc(r.message) + '</div>';
+      list.appendChild(card);
+    });
+  }
+
+  if(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const fd = new FormData(form);
+      const entry = {
+        name: (fd.get('name')||'').toString().trim() || 'Anonymous',
+        rating: Math.max(1, Math.min(5, parseInt(fd.get('rating')||'5'))),
+        message: (fd.get('message')||'').toString().trim(),
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+      if(!entry.message) return;
+      try { await col.add(entry); form.reset(); }
+      catch(err){ alert('Failed to post review.'); console.error(err); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
