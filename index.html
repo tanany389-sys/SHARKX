@@ -930,12 +930,14 @@ document.querySelectorAll('.lang-btn').forEach(btn=>{
 <script>
 // Replace with your Firebase config (Console → Project settings → General → Your apps → Web)
 const firebaseConfig = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  projectId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+  apiKey: "AIzaSy...YOUR_KEY...",
+  authDomain: "your-project-id.firebaseapp.com",
+  projectId: "your-project-id",
+  appId: "1:1234567890:web:abcdef123456",
+  storageBucket: "your-project-id.appspot.com",
+  messagingSenderId: "1234567890",
+  measurementId: "G-XXXXXXX"
 };
-
 (function(){
   const list = document.getElementById('reviews-list');
   const form = document.getElementById('review-form');
